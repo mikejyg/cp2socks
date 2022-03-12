@@ -1,0 +1,3 @@
+[submodule "mgucc"]
+	path = mgucc
+	url = https://github.com/mikejyg/mgucc.git
