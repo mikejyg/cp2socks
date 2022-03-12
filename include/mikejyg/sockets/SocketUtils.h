@@ -25,6 +25,8 @@
 #include <sys/types.h>
 #include <stdexcept>
 #include <mikejyg/ErrorUtils.h>
+#include <fcntl.h>
+#include <string>
 
 namespace mikejyg { namespace sockets {
 
@@ -66,6 +68,13 @@ public:
 
 		return std::pair<std::unique_ptr<struct sockaddr_storage>, socklen_t>(std::unique_ptr<struct sockaddr_storage>(addr), address_len);
 
+	}
+
+	static void setNonBlock(int sockfd) {
+		auto k = fcntl(sockfd, F_SETFL, O_NONBLOCK);
+//		std::cout << "fcntl() returns: " << k << std::endl;
+		if (k)
+			throw std::runtime_error(std::string("fcntl() returns non-zero: ") + std::to_string(k));
 	}
 
 

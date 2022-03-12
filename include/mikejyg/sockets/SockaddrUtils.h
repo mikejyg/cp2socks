@@ -31,6 +31,7 @@ extern "C" int inet_pton (int af, const char *src, void *dst);
 #include <sys/types.h>
 #include <stdexcept>
 #include <cstring>
+#include <memory>
 
 namespace mikejyg { namespace sockets {
 /**

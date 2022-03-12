@@ -29,7 +29,7 @@ namespace mikejyg { namespace sockets {
 class SelectUtils {
 public:
 
-	static void waitForRead(int sockfd) {
+	static int waitForRead(int sockfd) {
 		fd_set rfds;
 
 		FD_ZERO(&rfds);
@@ -41,6 +41,8 @@ public:
 			throw ErrorUtils::ErrnoException("select() failed:");
 		else if (k==0)
 			throw std::runtime_error("select() returns 0:");
+
+		return k;
 	}
 
 

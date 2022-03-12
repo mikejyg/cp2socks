@@ -12,6 +12,7 @@
 #include "mikejyg/sockets/SocketTest.h"
 #include "mikejyg/sockets/AdapterInfo.h"
 #include <mikejyg/OstreamBuilder.h>
+#include "ServerSelectTest.h"
 
 using namespace mikejyg::sockets;
 using namespace std;
@@ -21,6 +22,7 @@ void printHelp() {
 	cout << "\tadapterInfoTest\trun AdapterInfo tests (Windows only)." << endl;
 	cout << "\tsockaddrTest\trun SockaddrTest." << endl;
 	cout << "\tsocketTest\trun SocketTest." << endl;
+	cout << "\tserverSelectTest\trun ServerSelectTest." << endl;
 }
 
 int main(int argc, char **argv) {
@@ -52,6 +54,10 @@ int main(int argc, char **argv) {
 	} else if (cmdStr=="socketTest") {
 		SocketTest socketTest;
 		socketTest.test(argc-argIdx, argv+argIdx);
+
+	} else if (cmdStr=="serverSelectTest") {
+		ServerSelectTest serverSelectTest;
+		serverSelectTest.test();
 
 	} else {
 		std::cout << "unknown command: " << cmdStr << std::endl;

@@ -12,6 +12,8 @@
 #include "Socket.h"
 #include <mikejyg/ErrorUtils.h>
 #include "SocketAddress.h"
+#include "InetAddress.h"
+#include "StreamSocket.h"
 
 namespace mikejyg { namespace sockets {
 
