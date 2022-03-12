@@ -24,6 +24,8 @@ void printHelp() {
 }
 
 int main(int argc, char **argv) {
+	StreamSocketTest::sanityCheck();
+
 #ifdef _WIN32
 	WsaService::getInstance();
 #endif

@@ -25,6 +25,10 @@ public:
 	StreamSocketTest();
 	virtual ~StreamSocketTest();
 
+	static void sanityCheck() {
+		std::cout << "FD_SETSIZE: " << FD_SETSIZE << std::endl;
+	}
+
 	/**
 	 * a simple test with an echo server, send and receive a line.
 	 */
